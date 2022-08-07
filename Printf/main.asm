@@ -28,4 +28,4 @@ main:
     xor     rax, rax
     call    ExitProcess
     ;nasm -f win64 -o main.obj main.asm
-    ;
+    ;gcc main.obj -o main.exe
