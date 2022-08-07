@@ -14,12 +14,14 @@ extern GetStdHandle
 extern printf
 
 main:
+     
     push    rbp
     mov     rbp, rsp
     sub     rsp, 32
+   
     MOV RCX, stdout
     CALL GetStdHandle
-    MOV EDX, 1
+    MOV RDX, 1
     MOV RCX,RAX
     CALL SetConsoleTextAttribute
     lea     rcx, [msg]
