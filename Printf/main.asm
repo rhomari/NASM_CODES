@@ -18,16 +18,26 @@ main:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 32
-   
-    MOV RCX, stdout
-    CALL GetStdHandle
-    MOV RDX, 1
-    MOV RCX,RAX
-    CALL SetConsoleTextAttribute
-    lea     rcx, [msg]
+    call getStdout
+    call setTextColor
+    lea     RCX, [msg]
     call    printf
 
     xor     rax, rax
     call    ExitProcess
+
+getStdout:
+    MOV RCX, stdout
+    CALL GetStdHandle
+    ret
+
+setTextColor :
+    MOV RCX, RAX
+    MOV RDX,1
+    CALL SetConsoleTextAttribute
+    ret
+   
+    
+
     ;nasm -f win64 -o main.obj main.asm
     ;gcc main.obj -o main.exe
