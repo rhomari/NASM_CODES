@@ -12,7 +12,7 @@ PrintColoredText :
     push    rbp
     mov     rbp, rsp
     sub     rsp, 32
-    mov rdi, RCX
+    mov RDI, RCX
     call getStdout
     call setTextColor
     mov RCX,RDI
@@ -28,7 +28,6 @@ getStdout:
 
 setTextColor :
     MOV RCX, RAX
-    MOV RDX,1
     CALL SetConsoleTextAttribute
     RET
     
