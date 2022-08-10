@@ -12,9 +12,10 @@ PrintColoredText :
     push    rbp
     mov     rbp, rsp
     sub     rsp, 32
+    mov rdi, RCX
     call getStdout
     call setTextColor
-    lea     RCX, [msg]
+    mov RCX,RDI
     call    printf
 
     xor     rax, rax
