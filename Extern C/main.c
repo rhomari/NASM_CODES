@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <windows.h>
-
 int main()
 {
     extern int PrintColoredText(char*, int);
